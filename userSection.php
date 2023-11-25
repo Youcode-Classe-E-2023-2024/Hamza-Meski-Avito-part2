@@ -1,5 +1,10 @@
 <?php 
-    echo 'Hello<br>';
+    session_start(); 
+    $me = $_SESSION['me']; 
+    echo '<pre>';
+    print_r($me); 
+    echo '</pre>';
+    echo '<br>';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,11 +26,11 @@
                 <div class="">Hamza meski</div>
             </div>
             <div class="flex items-center gap-6">
-                <div class="flex gap-1 items-center bg-black text-white px-2 py-1 cursor-pointer rounded-md">
+                <div id="add_product" class="flex gap-1 items-center bg-black text-white px-2 py-1 cursor-pointer rounded-md">
                     <div>Add product</div>
                     <ion-icon name="add-outline" class="text-3xl cursor-pointer"></ion-icon>
                 </div>
-                <ion-icon name="exit-outline" class="text-3xl cursor-pointer"></ion-icon>
+                <ion-icon id="userSection_exit" name="exit-outline" class="text-3xl cursor-pointer"></ion-icon>
             </div>
         </nav>
 

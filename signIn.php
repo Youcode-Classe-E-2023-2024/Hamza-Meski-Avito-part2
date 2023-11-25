@@ -15,6 +15,9 @@
     foreach($users as $user) {
         if($user[2] == $_POST['in_email'] && $user[3] == $_POST['in_password']) {
             $checker = 1;
+            // 
+            session_start(); 
+            $_SESSION['me'] = $user;
             ?>
             <!DOCTYPE html>
             <html lang="en">
