@@ -15,13 +15,14 @@ function registerSwitching() {
 }
 registerSwitching();
 
-// submit with sign-up form with fetch API 
+// submit with sign-up form using fetch API 
 const signup_form = document.getElementById('signup_form'); 
 signup_form.addEventListener('submit', function(event) {
     event.preventDefault(); 
-    submitForm();
+    submitForm1();
 })
-function submitForm() {
+function submitForm1() {
+    console.log('signup form');
     const formData = new FormData(signup_form);
 
     fetch('signUp.php', {
@@ -32,6 +33,35 @@ function submitForm() {
     .then(data => {
         console.log(data);
         alert(data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+// submit with sign-in form using fetch API
+const signin_form = document.getElementById('signin_form');
+signin_form.addEventListener('submit', function(event) {
+    event.preventDefault(); 
+    submitForm2();
+})
+function submitForm2() {
+    console.log('signin form');
+    const formData = new FormData(signin_form);
+
+    fetch('signIn.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+        if (data.includes('</html>')) {
+            console.log('***')
+            body.innerHTML = data;
+        }else {
+            alert(data);
+        }
     })
     .catch(error => {
         console.error('Error:', error);

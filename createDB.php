@@ -39,8 +39,9 @@
     $table_name2 = "products";
     $sql_create_table2 = "CREATE TABLE IF NOT EXISTS $table_name2 (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        product_name VARCHAR(255) NOT NULL,
-        description VARCHAR(255) NOT NULL,
+        user_id INT NOT NULL,
+        product_name VARCHAR(50) NOT NULL,
+        description VARCHAR(200) NOT NULL,
         price DECIMAL(10, 2) NOT NULL
     )";
 

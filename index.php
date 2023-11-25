@@ -33,7 +33,7 @@
                     </div>
                     <div>
                         <label>Your password</label><br>
-                        <input id="in_password" type="password" name="in_password" placeholder="*******************" class="px-4 py-2 rounded-md w-full"><br>
+                        <input id="in_password" type="password" name="in_password" placeholder="*******************" class="px-4 py-2 rounded-md w-full" required><br>
                     </div>
                     <div class="flex justify-center">
                         <button type="submit" class="bg-green-400 w-24 rounded-md p-2">Sign in</button>
