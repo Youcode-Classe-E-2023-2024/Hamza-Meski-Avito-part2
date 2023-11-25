@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>landingPage</title>
     <style>
         .HIDDEN {
             display: none;
@@ -18,7 +18,7 @@
     <!-- User Register Section -->
     <section>
         <!-- Sign in Section -->
-        <section id="signin_section" class=" p-2 h-screen bg-orange-400">
+        <section id="signin_section" class=" p-2 h-screen ">
             <nav class="flex justify-between items-center border-b border-solid border-black">
                 <img src="img/avito-logo.svg" alt="avito-logo" class="w-24">
                 <button id="signup_button" class="bg-green-400 py-1 px-2 rounded-md">Sign-up</button>
@@ -26,7 +26,7 @@
     
             <!-- sign-in form: -->
             <section class="h-full w-full flex justify-center items-center">
-                <form id="signin_form" class="bg-orange-500 px-8 py-4 flex flex-col gap-2 rounded-md w-80">
+                <form id="signin_form" class="shadow-md bg-slate-300 px-8 py-4 flex flex-col gap-2 rounded-md w-80">
                     <div>
                         <label>Your email</label><br>
                         <input id="in_email" type="email" name="in_email" placeholder="hamzameski@gmail.com" class="px-4 py-2 rounded-md w-full" required><br>
@@ -43,14 +43,14 @@
         </section>
 
         <!-- Sign up Section -->
-        <section id="signup_section" class="HIDDEN p-2  h-screen bg-gray-600">
+        <section id="signup_section" class="HIDDEN p-2  h-screen">
             <nav class="flex justify-between">
                 <div></div>
                 <ion-icon id="close_icon" name="close" class="text-2xl cursor-pointer"></ion-icon>
             </nav>
             <!-- sign-up form: -->
             <section class="h-full w-full flex justify-center items-center">
-                <form id="signup_form" class="bg-orange-500 px-8 py-4 flex flex-col gap-2 rounded-md w-80">
+                <form id="signup_form" class="shadow-md bg-slate-300 px-8 py-4 flex flex-col gap-2 rounded-md w-80">
                     <div>
                         <label>Username</label><br>
                         <input id="username" type="text" name="username" placeholder="hamza meski" class="px-4 py-2 rounded-md w-full" required><br>
