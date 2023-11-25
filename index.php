@@ -76,7 +76,7 @@
     </section>
 
     <!-- Scripts: -->
-    <!-- tailwind cdn -->
+    <!-- tailwind cdn --> 
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- ionicons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

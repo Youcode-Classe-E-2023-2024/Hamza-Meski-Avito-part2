@@ -24,13 +24,14 @@ signup_form.addEventListener('submit', function(event) {
 function submitForm() {
     const formData = new FormData(signup_form);
 
-    fetch('register.php', {
+    fetch('signUp.php', {
         method: 'POST',
         body: formData
     })
     .then(response => response.text())
     .then(data => {
         console.log(data);
+        alert(data);
     })
     .catch(error => {
         console.error('Error:', error);
