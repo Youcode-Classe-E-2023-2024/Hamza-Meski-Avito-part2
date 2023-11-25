@@ -15,9 +15,7 @@
     $db_name = "avito";
     $sql_create_db = "CREATE DATABASE IF NOT EXISTS $db_name";
 
-    if (mysqli_query($conn, $sql_create_db)) {
-        echo "Database created successfully or already exists\n";
-    } else {
+    if (!mysqli_query($conn, $sql_create_db)) {
         echo "Error creating database: " . mysqli_error($conn);
     }
 
@@ -33,9 +31,7 @@
         password VARCHAR(255) NOT NULL
     )";
 
-    if (mysqli_query($conn, $sql_create_table1)) {
-        echo "Table '$table_name1' created successfully or already exists\n";
-    } else {
+    if (!mysqli_query($conn, $sql_create_table1)) {
         echo "Error creating table: " . mysqli_error($conn);
     }
 
@@ -48,9 +44,7 @@
         price DECIMAL(10, 2) NOT NULL
     )";
 
-    if (mysqli_query($conn, $sql_create_table2)) {
-        echo "Table '$table_name2' created successfully or already exists\n";
-    } else {
+    if (!mysqli_query($conn, $sql_create_table2)) {
         echo "Error creating table: " . mysqli_error($conn);
     }
 
@@ -58,13 +52,11 @@
     $table_name3 = "admin";
     $sql_create_table3 = "CREATE TABLE IF NOT EXISTS $table_name3 (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        user_id INT(255) NOT NULL,
-        product_id INT(255) NOT NULL
+        user_id INT NOT NULL,
+        product_id INT NOT NULL
     )";
 
-    if (mysqli_query($conn, $sql_create_table3)) {
-        echo "Table '$table_name3' created successfully or already exists\n";
-    } else {
+    if (!mysqli_query($conn, $sql_create_table3)) {
         echo "Error creating table: " . mysqli_error($conn);
     }
     
