@@ -61,7 +61,7 @@ function submitForm2() {
             const personal_icon = document.getElementById('personal_icon');
             personal_icon.addEventListener('click', async function () {
                 // Fetch 'userSection.html' content
-                const userSectionResponse = await fetch('userSection.html');
+                const userSectionResponse = await fetch('userSection.php');
                 const userSectionData = await userSectionResponse.text();
 
                 // Resolve the promise with the content of 'userSection.html'
@@ -76,7 +76,6 @@ function submitForm2() {
         }
     })
     .then(data => {
-        console.log(data);
         body.innerHTML = data;
     })
     .catch(error => {
