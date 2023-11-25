@@ -1,10 +1,13 @@
 <?php 
     session_start(); 
-    $me = $_SESSION['me']; 
-    echo '<pre>';
-    print_r($me); 
-    echo '</pre>';
-    echo '<br>';
+    $me = $_SESSION['me'];
+
+    // Create connection
+    $conn = mysqli_connect('localhost', 'root', '', 'avito');
+    // SQL products query
+    $select_products = "SELECT * FROM products";
+    $result_products = mysqli_query($conn, $select_products);
+    $products = mysqli_fetch_all($result_products);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +26,7 @@
         <nav class="pb-2 flex justify-between items-center border-b border-solid border-black">
             <div class="flex gap-1 items-center">
                 <div class="h-12 w-12 bg-black rounded-full"></div>
-                <div class="">Hamza meski</div>
+                <div class=""><?php echo $me[1] ?></div>
             </div>
             <div class="flex items-center gap-6">
                 <div id="add_product" class="flex gap-1 items-center bg-black text-white px-2 py-1 cursor-pointer rounded-md">
@@ -37,17 +40,27 @@
         <!-- products section -->
         <section>
             <section class="px-2 py-4 grid grid-cols-5 gap-x-4 gap-y-8">
-                <main class="shadow-md bg-slate-300 h-96 flex flex-col justify-between p-2 transform hover:scale-105 transition-all duration-500">
-                    <div class="h-52 bg-red-500"></div>
-                    <div>Lorem ipsum dolor sit amet consectetur ipsum dolor sit amet consectetur lorem100</div>
-                    <div class="flex justify-between font-bold">
-                        <div>Coffe machine</div>
-                        <div>7.7$</div>
-                    </div>
-                    <div class="bg-green-400 font-bold text-sm p-2 text-center cursor-pointer text-white">
-                        Edit
-                    </div>
-                </main>
+                <?php 
+                $main = '';
+                foreach($products as $product) {
+                    if($product[1] == $me[0]) {
+                        $main .= <<<HERDOC
+                        <main class="shadow-md bg-slate-300 h-96 flex flex-col justify-between p-2 transform hover:scale-105 transition-all duration-500">
+                            <div class="h-52 bg-red-500"></div>
+                            <div>$product[3]</div>
+                            <div class="flex justify-between font-bold">
+                                <div>$product[2]</div>
+                                <div>$product[4]$</div>
+                            </div>
+                            <div class="bg-green-400 font-bold text-sm p-2 text-center cursor-pointer text-white">
+                                Edit
+                            </div>
+                        </main>
+                        HERDOC;
+                    }
+                }
+                echo $main;
+                ?>
             </section>
         </section>
     </section>

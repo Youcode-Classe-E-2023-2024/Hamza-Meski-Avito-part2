@@ -10,13 +10,13 @@
     $select_products = "SELECT * FROM products";
     $result_products = mysqli_query($conn, $select_products);
     $products = mysqli_fetch_all($result_products);
+    session_start();
 
     $checker = 0;
     foreach($users as $user) {
         if($user[2] == $_POST['in_email'] && $user[3] == $_POST['in_password']) {
             $checker = 1;
-            // 
-            session_start(); 
+            // 1nd session item
             $_SESSION['me'] = $user;
             ?>
             <!DOCTYPE html>
