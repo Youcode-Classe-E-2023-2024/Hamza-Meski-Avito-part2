@@ -22,7 +22,6 @@ signup_form.addEventListener('submit', function(event) {
     submitForm1();
 })
 function submitForm1() {
-    console.log('signup form');
     const formData = new FormData(signup_form);
 
     fetch('signUp.php', {
@@ -46,7 +45,6 @@ signin_form.addEventListener('submit', function(event) {
     submitForm2();
 })
 function submitForm2() {
-    console.log('signin form');
     const formData = new FormData(signin_form);
 
     fetch('signIn.php', {
@@ -57,7 +55,6 @@ function submitForm2() {
     .then(data => {
         console.log(data);
         if (data.includes('</html>')) {
-            console.log('***')
             body.innerHTML = data;
         }else {
             alert(data);
