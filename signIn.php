@@ -27,7 +27,7 @@
                 <section class="p-2 h-screen">
                     <nav class="flex justify-between items-center border-b border-solid border-black">
                         <img src="img/avito-logo.svg" alt="avito-logo" class="w-24">
-                        <ion-icon name="clipboard" class="text-3xl cursor-pointer"></ion-icon>
+                        <ion-icon id="personal_icon" name="clipboard" class="text-3xl cursor-pointer"></ion-icon>
                     </nav>
 
                     <!-- products section -->
@@ -37,20 +37,24 @@
             <?php
             $main = '';
             foreach($products as $product) {
-                $main .= <<<HERDOC
-                <main class="shadow-md bg-slate-300 h-96 flex flex-col justify-between p-2 transform hover:scale-105 transition-all duration-500">
-                    <div class="flex gap-1 items-center">
-                        <div class="h-12 w-12 bg-black rounded-full"></div>
-                        <div class="">$user[1]</div>
-                    </div>
-                    <div class="h-52 bg-red-500"></div>
-                    <div>$product[3]</div>
-                    <div class="flex justify-between font-bold">
-                        <div>$product[2]</div>
-                        <div>$product[4]$</div>
-                    </div>
-                </main>
-                HERDOC;
+                foreach($users as $user) {
+                    if ($user[0] == $product[1]) {
+                        $main .= <<<HERDOC
+                        <main class="shadow-md bg-slate-300 h-96 flex flex-col justify-between p-2 transform hover:scale-105 transition-all duration-500">
+                            <div class="flex gap-1 items-center">
+                                <div class="h-12 w-12 bg-black rounded-full"></div>
+                                <div class="">{$user[$product[1]]}</div>
+                            </div>
+                            <div class="h-52 bg-red-500"></div>
+                            <div>$product[3]</div>
+                            <div class="flex justify-between font-bold">
+                                <div>$product[2]</div>
+                                <div>$product[4]$</div>
+                            </div>
+                        </main>
+                        HERDOC;
+                    }
+                }
             }
             echo $main;
             ?>

@@ -53,12 +53,31 @@ function submitForm2() {
     })
     .then(response => response.text())
     .then(data => {
-        console.log(data);
+        // console.log(data);
         if (data.includes('</html>')) {
             body.innerHTML = data;
+            // Create a promise that resolves when the personal_icon button is clicked
+            const personalIconPromise = new Promise((resolve) => {
+            const personal_icon = document.getElementById('personal_icon');
+            personal_icon.addEventListener('click', async function () {
+                // Fetch 'userSection.html' content
+                const userSectionResponse = await fetch('userSection.html');
+                const userSectionData = await userSectionResponse.text();
+
+                // Resolve the promise with the content of 'userSection.html'
+                resolve(userSectionData);
+            });
+        });
+
+        // Wait for the personal_icon button to be clicked
+        return personalIconPromise;
         }else {
             alert(data);
         }
+    })
+    .then(data => {
+        console.log(data);
+        body.innerHTML = data;
     })
     .catch(error => {
         console.error('Error:', error);
