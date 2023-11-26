@@ -1,7 +1,8 @@
 <?php 
     session_start(); 
     $me = $_SESSION['me'];
-
+    $_SESSION['myName'] = $me[1];
+    $_SESSION['myImage'] = $me[4];
     // Create connection
     $conn = mysqli_connect('localhost', 'root', '', 'avito');
     // SQL products query
