@@ -143,3 +143,12 @@ for(const button of delete_button) {
         })
     })
 }
+
+// admin section handling 
+const admin_icon = document.getElementById('admin_icon'); 
+if (admin_icon) {
+    // console.log(admin_icon);
+    admin_icon.addEventListener('click', function() {
+        
+    })
+}

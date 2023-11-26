@@ -12,17 +12,24 @@
     $products = mysqli_fetch_all($result_products);
 
     session_start();
+    // IMPORTANT! I did handle this logic because of the back into the userSection.php page So keeping the same informations of $_POST array
     if ($_SESSION['init'] == 0) {
         $_SESSION['SIGNIN_POST'] = $_POST;
     }
     $_SESSION['init']++;
 
     $checker = 0;
+    $isAdmin = 0;
+    // let's check if the in_email and in_password are for the admin
+    if($_SESSION['SIGNIN_POST']['in_email'] == 'admin@gmail.com' && $_SESSION['SIGNIN_POST']['in_password'] == 'admin') {
+        $isAdmin = 1;
+        $checker = 1;
+    }
     foreach($users as $user) {
-        if($user[2] == $_SESSION['SIGNIN_POST']['in_email'] && $user[3] == $_SESSION['SIGNIN_POST']['in_password']) {
+        if($isAdmin == 1 || $user[2] == $_SESSION['SIGNIN_POST']['in_email'] && $user[3] == $_SESSION['SIGNIN_POST']['in_password']) {
             $checker = 1;
             // 1nd session item
-            $_SESSION['me'] = $user;
+            $_SESSION['me'] = $user;// I will need that value in the userSection.php page
             ?>
             <!DOCTYPE html>
             <html lang="en">
@@ -35,7 +42,17 @@
                 <section id="home" class="p-2 h-screen">
                     <nav class="flex justify-between items-center border-b border-solid border-black">
                         <img src="img/avito-logo.svg" alt="avito-logo" class="w-24">
-                        <ion-icon id="personal_icon" name="clipboard" class="text-3xl cursor-pointer"></ion-icon>
+                        <?php
+                            if($isAdmin == 1) {
+                                echo '  
+                                    <div id="admin_icon" class="flex items-center gap-1 cursor-pointer">
+                                        <div>Admin</div>
+                                        <ion-icon name="clipboard" class="text-3xl"></ion-icon>
+                                    </div>';
+                            }else {
+                                echo '<ion-icon id="personal_icon" name="clipboard" class="text-3xl cursor-pointer"></ion-icon>';
+                            }
+                        ?>
                     </nav>
 
                     <!-- products section -->
@@ -80,6 +97,7 @@
             </body>
             </html>
             <?php
+            if ($isAdmin == 1) break;
         }
     }
     if ($checker == 0) die('Invalid email or password');
