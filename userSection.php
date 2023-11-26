@@ -22,7 +22,7 @@
     </style>
 </head>
 <body>
-    <section class="p-2 h-screen">
+    <section id="user_section" class="p-2 h-screen">
         <nav class="pb-2 flex justify-between items-center border-b border-solid border-black">
             <div class="flex gap-1 items-center">
                 <div class="h-12 w-12 bg-black rounded-full"></div>
@@ -64,30 +64,29 @@
             </section>
         </section>
     </section>
-    <!-- edit section -->
-    <section class="HIDDEN p-2 bg-cyan-400 h-screen w-full">
+    <!-- add_product section -->
+    <section id="add_product_section" class="HIDDEN p-2 bg-cyan-400 h-screen w-full">
         <nav class="pb-2 flex justify-between items-center border-b border-solid border-black">
             <div class="flex gap-1 items-center">
                 <div class="h-12 w-12 bg-black rounded-full"></div>
                 <div class="">Hamza meski</div>
             </div>
-            <ion-icon name="close-outline" class="text-3xl cursor-pointer"></ion-icon>
-
+            <ion-icon id="add_product_exit" name="close-outline" class="text-3xl cursor-pointer"></ion-icon>
         </nav>
         <section class="h-full flex justify-center items-center">
-            <!-- edit form -->
-            <form class="shadow-md bg-slate-300 px-8 py-4 flex flex-col gap-2 rounded-md w-80">
+            <!-- add_product form -->
+            <form id="add_product_form" class="shadow-md bg-slate-300 px-8 py-4 flex flex-col gap-2 rounded-md w-80">
                 <div>
                     <label>Product name</label><br>
-                    <input id="" type="text" name="in_email" class="px-4 py-2 rounded-md w-full" required><br>
+                    <input id="" type="text" name="product_name" class="px-4 py-2 rounded-md w-full" required><br>
                 </div>
                 <div>
                     <label>Product description</label><br>
-                    <input id="" type="text" name="in_password" class="px-4 py-2 rounded-md w-full" required><br>
+                    <input id="" type="text" name="description" class="px-4 py-2 rounded-md w-full" required><br>
                 </div>
                 <div>
                     <label>Product price</label><br>
-                    <input id="" type="text" name="in_password" class="px-4 py-2 rounded-md w-full" required><br>
+                    <input id="" type="text" name="price" class="px-4 py-2 rounded-md w-full" required><br>
                 </div>
                 <div class="flex justify-center">
                     <button type="submit" class="bg-green-400 w-24 rounded-md p-2">submit</button>

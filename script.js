@@ -77,6 +77,20 @@ function submitForm2() {
     .then(data => {
         if (data?.includes('</html>')) {
             body.innerHTML = data;
+            // Create a promise that resolves when the personal_icon button is clicked
+            const personalIconPromise = new Promise((resolve) => {
+                const add_product = document.getElementById('add_product');
+                add_product.addEventListener('click', async function () {
+                    // Fetch 'userSection.html' content
+                    const userSectionResponse = await fetch('addProductSection.php');
+                    const userSectionData = await userSectionResponse.text();
+
+                    // Resolve the promise with the content of 'userSection.html'
+                    resolve(userSectionData);
+                    // Wait for the personal_icon button to be clicked
+                });
+            })
+            return personalIconPromise;
         }
     })
     .catch(error => {
