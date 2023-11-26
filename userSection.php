@@ -55,6 +55,9 @@
                             <div class="product_id $product[0] edit_button bg-green-400 font-bold text-sm p-2 text-center cursor-pointer text-white">
                                 Edit
                             </div>
+                            <div class="product_id $product[0] delete_button bg-red-500 font-bold text-sm p-2 text-center cursor-pointer text-white">
+                                Delete
+                            </div>
                         </main>
                         HERDOC;
                     }

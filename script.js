@@ -107,7 +107,6 @@ if (edit_product_form) {
     
         // Retrieve product_id from localStorage
         product_id = localStorage.getItem('product_id');
-        console.log(product_id);
 
         formData.append('product_id', Number(product_id));
         fetch('updateProduct.php', {
@@ -121,5 +120,26 @@ const edit_product_exit = document.getElementById('edit_product_exit');
 if (edit_product_exit) {
     edit_product_exit.addEventListener('click', function() {
         window.location.href = 'userSection.php';
+    })
+}
+
+// Delete buttons handling
+const delete_button = document.querySelectorAll('.delete_button'); 
+for(const button of delete_button) {
+    button.addEventListener('click', function(event) {
+        const closestEelement = event.target.closest('.product_id');
+        const otherClassNames = Array.from(closestEelement.classList);
+        // console.log(otherClassNames[1]);
+        const formData = new FormData();
+        formData.append('product_id', Number(otherClassNames[1]));
+        fetch('deleteProduct.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(()=> {
+            window.location.reload();
+            alert('product Was Deleted Successfully');
+        })
     })
 }
