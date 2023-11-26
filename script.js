@@ -82,3 +82,44 @@ if (add_product_exit) {
         window.location.href = 'userSection.php';
     })
 }
+// edit buttons handling 
+let product_id;
+const edit_button = document.querySelectorAll('.edit_button'); 
+if (edit_button) {
+    for (const button of edit_button)
+    button.addEventListener('click', function(event) {
+        const closestEelement = event.target.closest('.product_id');
+        const otherClassNames = Array.from(closestEelement.classList);
+        console.log(otherClassNames[1]);
+        product_id = otherClassNames[1];
+
+        // Save product_id in localStorage
+        localStorage.setItem('product_id', product_id);
+
+        window.location.href = 'editProductSection.php';
+    })
+}
+const edit_product_form = document.getElementById('edit_product_form'); 
+if (edit_product_form) {
+    edit_product_form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(edit_product_form);
+    
+        // Retrieve product_id from localStorage
+        product_id = localStorage.getItem('product_id');
+        console.log(product_id);
+
+        formData.append('product_id', Number(product_id));
+        fetch('updateProduct.php', {
+            method: 'POST',
+            body: formData
+        })
+        alert('product Updated Successfully');
+    })
+}
+const edit_product_exit = document.getElementById('edit_product_exit'); 
+if (edit_product_exit) {
+    edit_product_exit.addEventListener('click', function() {
+        window.location.href = 'userSection.php';
+    })
+}

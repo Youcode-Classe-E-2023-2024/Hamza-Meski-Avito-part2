@@ -52,7 +52,7 @@
                                 <div>$product[2]</div>
                                 <div>$product[4]$</div>
                             </div>
-                            <div class="bg-green-400 font-bold text-sm p-2 text-center cursor-pointer text-white">
+                            <div class="product_id $product[0] edit_button bg-green-400 font-bold text-sm p-2 text-center cursor-pointer text-white">
                                 Edit
                             </div>
                         </main>
