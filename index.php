@@ -26,7 +26,7 @@
     
             <!-- sign-in form: -->
             <section class="h-full w-full flex justify-center items-center">
-                <form id="signin_form" class="shadow-md bg-slate-300 px-8 py-4 flex flex-col gap-2 rounded-md w-80">
+                <form id="signin_form" action="signIn.php" method="post" class="shadow-md bg-slate-300 px-8 py-4 flex flex-col gap-2 rounded-md w-80">
                     <div>
                         <label>Your email</label><br>
                         <input id="in_email" type="email" name="in_email" placeholder="hamzameski@gmail.com" class="px-4 py-2 rounded-md w-full" required><br>
