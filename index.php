@@ -1,5 +1,7 @@
 <?php
     require_once 'createDB.php';
+    session_start(); 
+    $_SESSION['init'] = 0;
 ?>
 
 <!DOCTYPE html>

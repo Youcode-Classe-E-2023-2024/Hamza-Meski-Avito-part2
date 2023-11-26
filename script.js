@@ -68,10 +68,12 @@ if (add_product_form) {
 }
 
 // userSection_exit handling
-// const userSection_exit = document.getElementById('userSection_exit'); 
-// if (userSection_exit) {
-//     window.location.href = 'signIn.php';
-// }
+const userSection_exit = document.getElementById('userSection_exit'); 
+if (userSection_exit) {
+    userSection_exit.addEventListener('click', function() {
+        window.location.href = 'signIn.php';
+    })
+}
 
 // Back into userSection.php page
 const add_product_exit = document.getElementById('add_product_exit'); 

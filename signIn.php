@@ -10,11 +10,16 @@
     $select_products = "SELECT * FROM products";
     $result_products = mysqli_query($conn, $select_products);
     $products = mysqli_fetch_all($result_products);
+
     session_start();
+    if ($_SESSION['init'] == 0) {
+        $_SESSION['SIGNIN_POST'] = $_POST;
+    }
+    $_SESSION['init']++;
 
     $checker = 0;
     foreach($users as $user) {
-        if($user[2] == $_POST['in_email'] && $user[3] == $_POST['in_password']) {
+        if($user[2] == $_SESSION['SIGNIN_POST']['in_email'] && $user[3] == $_SESSION['SIGNIN_POST']['in_password']) {
             $checker = 1;
             // 1nd session item
             $_SESSION['me'] = $user;
@@ -46,7 +51,7 @@
                         <main class="shadow-md bg-slate-300 h-96 flex flex-col justify-between p-2 transform hover:scale-105 transition-all duration-500">
                             <div class="flex gap-1 items-center">
                                 <div class="h-12 w-12 bg-black rounded-full"></div>
-                                <div class="">{$user[$product[1]]}</div>
+                                <div class="">{$user[1]}</div>
                             </div>
                             <div class="h-52 bg-red-500"></div>
                             <div>$product[3]</div>
