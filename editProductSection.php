@@ -17,7 +17,7 @@
         </nav>
         <section class="h-full flex justify-center items-center">
             <!-- edit_product form -->
-            <form id="edit_product_form" class="shadow-md bg-slate-300 px-8 py-4 flex flex-col gap-2 rounded-md w-80">
+            <form id="edit_product_form" class="shadow-md bg-slate-300 px-8 py-4 flex flex-col gap-2 rounded-md w-80" enctype="multipart/form-data">
                 <div>
                     <label>Product name</label><br>
                     <input id="" type="text" name="product_name" class="px-4 py-2 rounded-md w-full" required><br>
@@ -29,6 +29,10 @@
                 <div>
                     <label>Product price</label><br>
                     <input id="" type="text" name="price" class="px-4 py-2 rounded-md w-full" required><br>
+                </div>
+                <div>
+                    <label>Select product image</label><br>
+                    <input type="file" name="file" required><br>
                 </div>
                 <div class="flex justify-center">
                     <button type="submit" class="bg-green-400 w-24 rounded-md p-2">update</button>

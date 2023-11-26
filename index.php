@@ -52,7 +52,7 @@
             </nav>
             <!-- sign-up form: -->
             <section class="h-full w-full flex justify-center items-center">
-                <form id="signup_form" class="shadow-md bg-slate-300 px-8 py-4 flex flex-col gap-2 rounded-md w-80">
+                <form id="signup_form" class="shadow-md bg-slate-300 px-8 py-4 flex flex-col gap-2 rounded-md w-80" enctype="multipart/form-data">
                     <div>
                         <label>Username</label><br>
                         <input id="username" type="text" name="username" placeholder="hamza meski" class="px-4 py-2 rounded-md w-full" required><br>
@@ -68,6 +68,10 @@
                     <div>
                         <label>Confirm password</label><br>
                         <input id="up_confirm" type="password" name="up_confirm" placeholder="*******************" class="px-4 py-2 rounded-md w-full" required><br>
+                    </div>
+                    <div>
+                        <label>Select Your Image profile</label><br>
+                        <input type="file" name="file" required><br>
                     </div>
                     <div class="flex justify-center">
                         <button type="submit" id="signup_button2" class="bg-green-400 w-24 rounded-md p-2">Sign up</button>

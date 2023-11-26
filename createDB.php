@@ -28,7 +28,8 @@
         id INT AUTO_INCREMENT PRIMARY KEY,
         username VARCHAR(255) NOT NULL,
         email VARCHAR(255) NOT NULL,
-        password VARCHAR(255) NOT NULL
+        password VARCHAR(255) NOT NULL,
+        path VARCHAR(255) NOT NULL
     )";
 
     if (!mysqli_query($conn, $sql_create_table1)) {
@@ -42,7 +43,8 @@
         user_id INT NOT NULL,
         product_name VARCHAR(50) NOT NULL,
         description VARCHAR(200) NOT NULL,
-        price DECIMAL(10, 2) NOT NULL
+        price DECIMAL(10, 2) NOT NULL,
+        path VARCHAR(255) NOT NULL
     )";
 
     if (!mysqli_query($conn, $sql_create_table2)) {

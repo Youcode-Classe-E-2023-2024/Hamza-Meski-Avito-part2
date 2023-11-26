@@ -25,7 +25,7 @@
     <section id="user_section" class="p-2 h-screen">
         <nav class="pb-2 flex justify-between items-center border-b border-solid border-black">
             <div class="flex gap-1 items-center">
-                <div class="h-12 w-12 bg-black rounded-full"></div>
+                <div class="h-12 w-12 rounded-full" style="background-image: url(<?php echo '' . $me[4] . '' ?>);background-size:cover;"></div>
                 <div class=""><?php echo $me[1] ?></div>
             </div>
             <div class="flex items-center gap-6">
@@ -46,7 +46,7 @@
                     if($product[1] == $me[0]) {
                         $main .= <<<HERDOC
                         <main class="shadow-md bg-slate-300 h-96 flex flex-col justify-between p-2 transform hover:scale-105 transition-all duration-500">
-                            <div class="h-52 bg-red-500"></div>
+                            <div class="h-52" style="background-image: url('$product[5]');background-size: cover;background-position: center"></div>
                             <div>$product[3]</div>
                             <div class="flex justify-between font-bold">
                                 <div>$product[2]</div>

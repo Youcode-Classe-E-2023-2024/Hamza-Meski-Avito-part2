@@ -50,10 +50,10 @@
                         $main .= <<<HERDOC
                         <main class="shadow-md bg-slate-300 h-96 flex flex-col justify-between p-2 transform hover:scale-105 transition-all duration-500">
                             <div class="flex gap-1 items-center">
-                                <div class="h-12 w-12 bg-black rounded-full"></div>
+                                <div class="h-12 w-12 rounded-full" style="background-image: url('$user[4]');background-size: cover;"></div>
                                 <div class="">{$user[1]}</div>
                             </div>
-                            <div class="h-52 bg-red-500"></div>
+                            <div class="h-52" style="background-image: url('$product[5]');background-size: cover;background-position: center"></div>
                             <div>$product[3]</div>
                             <div class="flex justify-between font-bold">
                                 <div>$product[2]</div>
