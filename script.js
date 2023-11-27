@@ -147,3 +147,9 @@ if (admin_icon) {
         window.location.href = 'adminSection.php';
     })
 }
+const admin_panel = document.getElementById('admin_panel'); 
+if(admin_panel) {
+    admin_panel.addEventListener('click', function() {
+        window.location.href = 'adminSection.php';
+    })
+}

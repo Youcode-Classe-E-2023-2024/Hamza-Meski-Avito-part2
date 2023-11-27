@@ -1,14 +1,19 @@
 <form id="myForm"></form>
 <?php
     // data coming from adminSection.php: 
-    echo '<pre>'; 
-    print_r($_POST); 
-    echo '</pre>';
+    // echo '<pre>'; 
+    // print_r($_POST); 
+    // echo '</pre>';
+
+    if(isset($_POST['user_id'])) {
+        $me[0] = $_POST['user_id'];
+    }else {
+        session_start(); 
+        $me = $_SESSION['me'];
+        $_SESSION['myName'] = $me[1];
+        $_SESSION['myImage'] = $me[4];
+    }
     
-    session_start(); 
-    $me = $_SESSION['me'];
-    $_SESSION['myName'] = $me[1];
-    $_SESSION['myImage'] = $me[4];
     // Create connection
     $conn = mysqli_connect('localhost', 'root', '', 'avito');
     // SQL products query
@@ -32,15 +37,30 @@
     <section id="user_section" class="p-2 h-screen">
         <nav class="pb-2 flex justify-between items-center border-b border-solid border-black">
             <div class="flex gap-1 items-center">
+                <?php 
+                if(isset($_POST['user_id'])) {
+                ?>
+                <div class="h-12 w-12 bg-black rounded-full"></div>
+                <div class="">ADMIN</div>
+                <?php 
+                }else {
+                ?>
                 <div class="h-12 w-12 rounded-full" style="background-image: url(<?php echo '' . $me[4] . '' ?>);background-size:cover;"></div>
                 <div class=""><?php echo $me[1] ?></div>
+                <?php }?>
             </div>
             <div class="flex items-center gap-6">
-                <div id="add_product" class="flex gap-1 items-center bg-black text-white px-2 py-1 cursor-pointer rounded-md">
-                    <div>Add product</div>
-                    <ion-icon name="add-outline" class="text-3xl cursor-pointer"></ion-icon>
-                </div>
-                <ion-icon id="userSection_exit" name="home" class="text-3xl cursor-pointer"></ion-icon>
+                <?php if(isset($_POST['user_id'])) { ?>
+                        <div id="admin_panel" class="flex gap-1 items-center bg-black text-white px-2 py-1 cursor-pointer rounded-md">
+                            ADMIN PANEL
+                        </div>
+                    <?php }else { ?>
+                        <div id="add_product" class="flex gap-1 items-center bg-black text-white px-2 py-1 cursor-pointer rounded-md">
+                            <div>Add product</div>
+                            <ion-icon name="add-outline" class="text-3xl cursor-pointer"></ion-icon>
+                        </div>
+                    <ion-icon id="userSection_exit" name="home" class="text-3xl cursor-pointer"></ion-icon>
+                <?php } ?>
             </div>
         </nav>
 

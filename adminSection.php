@@ -36,7 +36,7 @@
                 $main = ''; 
                 foreach($users as $user) {
                     $main .= <<<HERDOC
-                    <button type="submit" name="user_id" value="$user[0]" class="user_id $user[0] bg-gray-200 p-1 flex justify-between items-center cursor-pointer">
+                    <button type="submit" name="user_id" value="$user[0]" class="bg-gray-200 p-1 flex justify-between items-center cursor-pointer">
                         <div class=" flex gap-1 items-center">
                             <div class="h-12 w-12 rounded-full" style="background-image: url('$user[4]');background-size: cover;"></div>
                             <div class="">$user[1]</div>
