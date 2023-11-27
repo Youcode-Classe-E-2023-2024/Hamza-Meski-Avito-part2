@@ -31,23 +31,24 @@
 
         <!-- products section -->
         <section>
-            <section class="px-2 py-4 flex flex-col gap-2">
+            <form id="adminForm" action="userSection.php" method="post" class="px-2 py-4 flex flex-col gap-2">
                 <?php 
                 $main = ''; 
                 foreach($users as $user) {
                     $main .= <<<HERDOC
-                    <main class="bg-gray-200 p-1 flex justify-between items-center cursor-pointer">
+                    <button type="submit" name="user_id" value="$user[0]" class="user_id $user[0] bg-gray-200 p-1 flex justify-between items-center cursor-pointer">
                         <div class=" flex gap-1 items-center">
                             <div class="h-12 w-12 rounded-full" style="background-image: url('$user[4]');background-size: cover;"></div>
                             <div class="">$user[1]</div>
                         </div>
                         <ion-icon name="settings" class="text-3xl"></ion-icon>
-                    </main>
+                    </button>
                     HERDOC;
                 }
                 echo $main;
                 ?>
-            </section>
+                
+            </form>
         </section>
     </section>
     <!-- Scripts: -->
@@ -56,5 +57,7 @@
     <!-- ionicons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- local script -->
+    <script src="script.js"></script>
 </body>
 </html>

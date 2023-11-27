@@ -10,7 +10,7 @@
 </head>
 <body>
     <!-- add_product section -->
-    <section id="add_product_section" class="p-2 bg-cyan-400 h-screen w-full">
+    <section id="add_product_section" class="p-2 h-screen w-full">
         <nav class="pb-2 flex justify-between items-center border-b border-solid border-black">
             <div class="flex gap-1 items-center">
                 <div class="h-12 w-12 rounded-full" style="background-image: url(<?php echo '' . $_SESSION['myImage'] . '' ?>);background-size:cover;"></div>

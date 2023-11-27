@@ -1,7 +1,7 @@
 <?php 
     // Create connection
     $conn = mysqli_connect('localhost', 'root', '', 'avito');
-    
+
     session_start(); 
     $product_id = filter_input(INPUT_POST, 'product_id', FILTER_SANITIZE_SPECIAL_CHARS);
     $product_name = filter_input(INPUT_POST, 'product_name', FILTER_SANITIZE_SPECIAL_CHARS);

@@ -83,7 +83,6 @@ if (add_product_exit) {
     })
 }
 // edit buttons handling 
-let product_id;
 const edit_button = document.querySelectorAll('.edit_button'); 
 if (edit_button) {
     for (const button of edit_button)
@@ -91,10 +90,9 @@ if (edit_button) {
         const closestEelement = event.target.closest('.product_id');
         const otherClassNames = Array.from(closestEelement.classList);
         console.log(otherClassNames[1]);
-        product_id = otherClassNames[1];
 
         // Save product_id in localStorage
-        localStorage.setItem('product_id', product_id);
+        localStorage.setItem('product_id', otherClassNames[1]);
 
         window.location.href = 'editProductSection.php';
     })
@@ -106,9 +104,7 @@ if (edit_product_form) {
         const formData = new FormData(edit_product_form);
     
         // Retrieve product_id from localStorage
-        product_id = localStorage.getItem('product_id');
-
-        formData.append('product_id', Number(product_id));
+        formData.append('product_id', Number(localStorage.getItem('product_id')));
         fetch('updateProduct.php', {
             method: 'POST',
             body: formData
@@ -129,7 +125,6 @@ for(const button of delete_button) {
     button.addEventListener('click', function(event) {
         const closestEelement = event.target.closest('.product_id');
         const otherClassNames = Array.from(closestEelement.classList);
-        // console.log(otherClassNames[1]);
         const formData = new FormData();
         formData.append('product_id', Number(otherClassNames[1]));
         fetch('deleteProduct.php', {
@@ -149,6 +144,6 @@ const admin_icon = document.getElementById('admin_icon');
 if (admin_icon) {
     // console.log(admin_icon);
     admin_icon.addEventListener('click', function() {
-        
+        window.location.href = 'adminSection.php';
     })
 }

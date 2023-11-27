@@ -14,6 +14,11 @@
         .HIDDEN {
             display: none;
         }
+        #signin_section,
+        #signup_section {
+            background-image: url('img/avitoBg.jpeg');
+            background-size: cover;
+        }
     </style>
 </head>
 <body>
@@ -27,7 +32,7 @@
             </nav>
     
             <!-- sign-in form: -->
-            <section class="h-full w-full flex justify-center items-center">
+            <section class="h-[90%] w-full flex justify-center items-center">
                 <form id="signin_form" action="signIn.php" method="post" class="shadow-md bg-slate-300 px-8 py-4 flex flex-col gap-2 rounded-md w-80">
                     <div>
                         <label>Your email</label><br>
@@ -51,7 +56,7 @@
                 <ion-icon id="close_icon" name="close" class="text-2xl cursor-pointer"></ion-icon>
             </nav>
             <!-- sign-up form: -->
-            <section class="h-full w-full flex justify-center items-center">
+            <section class="h-[90%] w-full flex justify-center items-center">
                 <form id="signup_form" class="shadow-md bg-slate-300 px-8 py-4 flex flex-col gap-2 rounded-md w-80" enctype="multipart/form-data">
                     <div>
                         <label>Username</label><br>

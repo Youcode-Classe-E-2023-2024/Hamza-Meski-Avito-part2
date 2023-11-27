@@ -50,7 +50,7 @@
                                         <ion-icon name="clipboard" class="text-3xl"></ion-icon>
                                     </div>';
                             }else {
-                                echo '<ion-icon id="personal_icon" name="clipboard" class="text-3xl cursor-pointer"></ion-icon>';
+                                echo '<ion-icon id="personal_icon" name="person" class="text-3xl cursor-pointer"></ion-icon>';
                             }
                         ?>
                     </nav>

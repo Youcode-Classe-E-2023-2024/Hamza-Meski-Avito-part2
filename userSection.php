@@ -1,4 +1,10 @@
-<?php 
+<form id="myForm"></form>
+<?php
+    // data coming from adminSection.php: 
+    echo '<pre>'; 
+    print_r($_POST); 
+    echo '</pre>';
+    
     session_start(); 
     $me = $_SESSION['me'];
     $_SESSION['myName'] = $me[1];
@@ -34,7 +40,7 @@
                     <div>Add product</div>
                     <ion-icon name="add-outline" class="text-3xl cursor-pointer"></ion-icon>
                 </div>
-                <ion-icon id="userSection_exit" name="exit-outline" class="text-3xl cursor-pointer"></ion-icon>
+                <ion-icon id="userSection_exit" name="home" class="text-3xl cursor-pointer"></ion-icon>
             </div>
         </nav>
 
