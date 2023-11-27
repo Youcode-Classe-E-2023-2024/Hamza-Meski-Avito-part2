@@ -20,6 +20,10 @@
     $select_products = "SELECT * FROM products";
     $result_products = mysqli_query($conn, $select_products);
     $products = mysqli_fetch_all($result_products);
+    // SQL products query
+    $select_users = "SELECT * FROM users";
+    $result_users = mysqli_query($conn, $select_users);
+    $users = mysqli_fetch_all($result_users);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,6 +69,16 @@
         </nav>
 
         <!-- products section -->
+        <?php
+        if(isset($_POST['user_id'])) {
+        foreach($users as $user) {
+            if($user[0] == $_POST['user_id']) {          
+            echo <<<HERDOC
+                <h1 class="text-center text-xl bg-red-500 p-2 m-1"> $user[1] Section</h1>
+                HERDOC;
+            }
+        }
+        }?>
         <section>
             <section class="px-2 py-4 grid grid-cols-5 gap-x-4 gap-y-8">
                 <?php 
